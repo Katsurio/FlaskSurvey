@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/app.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav id="navbar" class="navbar">
+        <ul id="navbar-ul" class="navbar-ul">
+          <li><a class="active" href="/">Start</a></li>
+          <li><a href="story">Question</a></li>
+        </ul>
+      </nav>
+      <main id="main-content" class="main-content">
+        {% block h1_name %}{% endblock %} 
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>
