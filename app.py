@@ -10,9 +10,22 @@ app.config['SECRET_KEY'] = "himitsu-desu"
 debug = DebugToolbarExtension(app)
 
 
+responses = []
+
+
 @app.route('/')
 def start_survey():
     """Return start survery page."""
+    
+    title = ss.title
+    instructions = ss.instructions
+    
+    return render_template("start.html", instructions = instructions, title = title)
+
+
+@app.route('/question/<int:id>')
+def question(id):
+    """Return question page."""
 
     
-    return render_template("start.html")
+    return render_template("question.html")
