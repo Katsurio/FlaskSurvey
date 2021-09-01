@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/app.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav id="navbar" class="navbar">
+        <ul id="navbar-ul" class="navbar-ul">
+          <li><a class="active" href="/">Start</a></li>
+          <li><a href="story">Question</a></li>
+        </ul>
+      </nav>
+      <main id="main-content" class="main-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <section id="messages" class="messages">
+              {% for category, msg in messages %}
+                <p class={{ category }}>{{ msg }}</p>
+              {% endfor %}
+            </section>
+          {% endif %}
+        {% endwith %}
+        {% block h1_name %}{% endblock %} 
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

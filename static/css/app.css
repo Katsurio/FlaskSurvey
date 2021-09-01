@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/***************************
+ Navbar  
+*******/
+ul {
+  list-style-type: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04aa6d;
+}
+
+/*** 
+END Nav
+**************************/
+
+/***************************
+Section Messages
+*******/
+.messages p {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.messages .warn {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+/*** 
+END Section Messages
+
+
+/***************************
+ Main Content  
+*******/
+.main-content {
+  padding: 40px;
+}
+
+/*** 
+END Main Content
+**************************/
+
+/***************************
+ Buttons  
+*******/
+.button {
+  background-color: #04aa6d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/*** 
+END Buttons
+**************************/
