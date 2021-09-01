@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, flash
 from flask.globals import request
 from flask_debugtoolbar import DebugToolbarExtension
 
@@ -41,6 +41,7 @@ def question(id):
     elif id > len(ss.questions) and len(responses) >= len(ss.questions):
         return redirect('/thanks')
     else: 
+        flash("Invalid question, try again!", 'warn')
         return redirect(f'/question/{current_id}')
 
 
