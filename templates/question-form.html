@@ -1,0 +1,9 @@
+<form method="POST" action="/story">
+    {{ form.csrf_token }}
+    {{ form.place.label }} {{ form.place(size=20) }}
+    {{ form.noun.label }} {{ form.noun(size=20) }}
+    {{ form.verb.label }} {{ form.verb(size=20) }}
+    {{ form.adjective.label }} {{ form.adjective(size=20) }}
+    {{ form.plural_noun.label }} {{ form.plural_noun(size=20) }}
+    <input type="submit" value="submit">
+</form>
