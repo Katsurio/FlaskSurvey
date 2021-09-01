@@ -17,7 +17,7 @@ responses = []
 
 @app.route('/')
 def start_survey():
-    """Return start survery page."""
+    """Return start survey page."""
     
     title = ss.title
     instructions = ss.instructions
@@ -31,13 +31,35 @@ def question(id):
     form = QF()
 
     current_id = len(responses)
-    title = ss.title
-    question = ss.questions[current_id].question
-    choices = ss.questions[current_id].choices
-    instructions = ss.instructions
-
+    
     if id == current_id:
+        title = ss.title
+        question = ss.questions[current_id].question
+        choices = ss.questions[current_id].choices
+        instructions = ss.instructions
         return render_template("question.html", question = question, title = title, id = current_id, form = form, instructions = instructions, choices = choices)
+    elif id > len(ss.questions) and len(responses) >= len(ss.questions):
+        return redirect('/thanks')
     else: 
         return redirect(f'/question/{current_id}')
-        # redirect(f'/question/{current_id}', q = question, title = title, id = current_id, form = form, instructions = instructions)
+
+
+@app.route('/answer', methods=['POST'])
+def handle_answer():
+    """Handle answer from form submission and redirect."""
+    
+    answer = request.form['choices']
+    responses.append(answer)
+    current_id = len(responses)
+    
+    if len(responses) < len(ss.questions):
+        return redirect(f'/question/{current_id}')
+    else:
+        return redirect('/thanks')
+    
+    
+@app.route('/thanks')
+def thanks():
+    """Return thank you page."""
+    
+    return render_template("thanks.html")
